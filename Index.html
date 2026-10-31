@@ -1,0 +1,490 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>2026 下半年工作報告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap">
+<style>/* Layout: one reading column; chapters stacked, every block a collapsed row that opens in place. Earth palette from the deck. */
+:root {
+  --bg: #FBF9F6;
+  --surface: #F3EEE7;
+  --surface-2: #E6DDCF;
+  --panel: #5B4636;
+  --panel-fg: #FFFFFF;
+  --panel-muted: #E6DDCF;
+  --fg: #3A3129;
+  --muted: #8A7563;
+  --line: #DDD2C2;
+  --accent: #B0653C;
+  --olive: #6F7B4F;
+  --track: #E6DDCF;
+  --star: #D9A21B;
+  --font: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", "Heiti TC", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1F1A16; --surface: #2A231E; --surface-2: #362D26; --panel: #3B3029; --panel-fg: #F5EEE6; --panel-muted: #CDBFA6;
+    --fg: #EDE5DB; --muted: #B3A291; --line: #44382F; --accent: #DE8F60; --olive: #A9B585; --track: #4A3E35; --star: #E8B53A;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1F1A16; --surface: #2A231E; --surface-2: #362D26; --panel: #3B3029; --panel-fg: #F5EEE6; --panel-muted: #CDBFA6;
+  --fg: #EDE5DB; --muted: #B3A291; --line: #44382F; --accent: #DE8F60; --olive: #A9B585; --track: #4A3E35; --star: #E8B53A;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-size: 16px; line-height: 1.7; }
+.wrap { max-width: 1040px; margin: 0 auto; padding-block: 40px 56px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+a { color: var(--accent); text-underline-offset: 3px; }
+a:focus-visible, summary:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 6px; }
+h1, h2, h3, h4, h5 { margin: 0; text-wrap: balance; }
+p { margin: 0; }
+ul { margin: 0; padding-left: 1.25em; }
+li { margin: 0.2em 0; }
+li::marker { color: var(--accent); }
+ul.sub li::marker { color: var(--muted); }
+strong { font-weight: 700; }
+
+/* cover */
+.cover { background: var(--panel); color: var(--panel-fg); border-radius: 14px; padding: 36px clamp(20px, 4vw, 44px) 28px; display: grid; gap: 14px; }
+.eyebrow { font-size: 13px; letter-spacing: 0.08em; color: var(--panel-muted); }
+.cover h1 { font-size: clamp(30px, 5vw, 44px); font-weight: 900; letter-spacing: 0.02em; line-height: 1.25; }
+.meta { color: var(--panel-muted); font-size: 16px; }
+.toc { border-top: 1px solid color-mix(in srgb, var(--panel-fg) 22%, transparent); padding-top: 16px; margin-top: 6px; }
+.toc h2 { font-size: 13px; letter-spacing: 0.12em; color: var(--panel-muted); font-weight: 500; margin-bottom: 6px; }
+.toc ol { list-style: none; padding: 0; margin: 0; display: flex; flex-wrap: wrap; gap: 6px 22px; }
+.toc ol ol { display: inline-flex; gap: 6px 14px; margin-left: 10px; font-size: 14px; }
+.toc li { margin: 0; }
+.toc a { color: var(--panel-fg); text-decoration: none; border-bottom: 1px solid color-mix(in srgb, var(--panel-fg) 35%, transparent); }
+.toc ol ol a { color: var(--panel-muted); }
+.toc a:hover { border-bottom-color: var(--panel-fg); }
+.tools { display: flex; justify-content: flex-end; }
+.tools button { font: inherit; font-size: 14px; color: var(--panel-fg); background: transparent; border: 1px solid color-mix(in srgb, var(--panel-fg) 40%, transparent); border-radius: 999px; padding: 4px 14px; cursor: pointer; }
+.tools button:hover { background: color-mix(in srgb, var(--panel-fg) 12%, transparent); }
+
+/* chapters */
+.chapter { margin-top: 40px; display: grid; gap: 10px; }
+.chapter > h2 { font-size: 24px; font-weight: 900; }
+.chsub { color: var(--muted); font-size: 14px; display: flex; flex-wrap: wrap; gap: 4px 16px; margin-top: -4px; }
+.note { color: var(--muted); }
+.group { font-size: 15px; font-weight: 700; color: var(--olive); letter-spacing: 0.06em; margin-top: 14px; }
+.plist { display: grid; gap: 8px; }
+.star { color: var(--star); margin-left: 6px; font-size: 0.95em; }
+h4 .star { margin: 0 4px 0 0; }
+
+/* collapsible rows */
+details { background: var(--surface); border-radius: 12px; }
+details > summary { list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px; padding: 14px 18px; border-radius: 12px; }
+details > summary::-webkit-details-marker { display: none; }
+details > summary:hover { background: var(--surface-2); }
+details[open] > summary { border-bottom: 1px solid var(--line); border-radius: 12px 12px 0 0; }
+.caret { margin-left: auto; flex: none; width: 10px; height: 10px; border-right: 2px solid var(--muted); border-bottom: 2px solid var(--muted); transform: rotate(45deg); margin-top: -4px; transition: transform .2s; }
+details[open] > summary .caret { transform: rotate(-135deg); margin-top: 4px; }
+.btitle { font-size: 17px; font-weight: 700; }
+.blk.chap { margin-top: 0; }
+.blk.chap > summary .btitle { font-size: 24px; font-weight: 900; }
+.chapter.solo { margin-top: 40px; }
+.bbody, .pbody { padding: 20px 18px 22px; display: grid; gap: 18px; }
+
+.code { flex: none; font-size: 13px; font-weight: 700; color: var(--accent); background: var(--bg); border-radius: 6px; padding: 2px 8px; font-variant-numeric: tabular-nums; }
+.ptitle { font-weight: 700; min-width: 0; }
+.chips { display: flex; gap: 6px; flex-wrap: wrap; justify-content: flex-end; margin-left: auto; }
+.chip { font-size: 12px; font-variant-numeric: tabular-nums; color: var(--muted); border: 1px solid var(--line); border-radius: 999px; padding: 0 8px; background: var(--bg); }
+.chips + .caret { margin-left: 4px; }
+@media (max-width: 640px) {
+  details > summary { flex-wrap: wrap; }
+  .proj > summary .chips { order: 3; width: 100%; justify-content: flex-start; margin-left: 0; }
+  .proj > summary .ptitle { flex: 1; }
+}
+
+/* project page: side panel + cards */
+.subhead { font-size: 16px; font-weight: 700; color: var(--fg); padding-bottom: 6px; border-bottom: 1px dashed var(--line); }
+.subhead + .pgrid { margin-top: -6px; }
+.pgrid { display: grid; grid-template-columns: minmax(0, 300px) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 760px) { .pgrid { grid-template-columns: minmax(0, 1fr); } }
+.side { background: var(--panel); color: var(--panel-fg); border-radius: 10px; padding: 18px; display: grid; gap: 16px; }
+.intro { font-size: 15px; line-height: 1.75; }
+.prog h4 { font-size: 13px; color: var(--panel-muted); letter-spacing: 0.08em; font-weight: 500; margin-bottom: 6px; }
+.prow { display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: 10px; padding: 8px 0; border-top: 1px solid color-mix(in srgb, var(--panel-fg) 16%, transparent); }
+.plab { font-size: 13px; color: var(--panel-muted); }
+.pval { font-weight: 700; font-size: 16px; font-variant-numeric: tabular-nums; text-align: right; }
+.prow .bar { grid-column: 1 / -1; margin-top: 4px; }
+.prow ul { grid-column: 1 / -1; font-size: 12px; color: var(--panel-muted); margin-top: 4px; }
+.prow li::marker { color: var(--panel-muted); }
+.bar { display: block; height: 5px; border-radius: 3px; background: color-mix(in srgb, var(--panel-fg) 18%, transparent); overflow: hidden; }
+.bar > span { display: block; height: 100%; background: var(--panel-fg); border-radius: 3px; }
+.cards { display: grid; gap: 12px; min-width: 0; }
+.card { background: var(--bg); border-radius: 10px; padding: 16px 18px; display: grid; gap: 8px; min-width: 0; }
+.card h4 { font-size: 18px; color: var(--accent); font-weight: 700; }
+.card h4 a { color: inherit; }
+
+/* duty */
+.duty { display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr) minmax(0, 0.9fr); gap: 14px; }
+@media (max-width: 760px) { .duty { grid-template-columns: minmax(0, 1fr); } }
+.role { background: var(--panel); color: var(--panel-fg); border-radius: 10px; padding: 18px; display: grid; gap: 4px; align-content: start; }
+.role h4 { font-size: 17px; }
+.role p { color: var(--panel-muted); margin-bottom: 12px; }
+.dlist { background: var(--bg); border-radius: 10px; padding: 18px; }
+.dlist h4 { color: var(--accent); font-size: 16px; margin-bottom: 6px; }
+.dlist h5 { font-size: 14px; margin-top: 8px; }
+.dlist ul { font-size: 15px; }
+
+/* highlights */
+.hl { display: grid; gap: 12px; }
+.hhead { background: var(--panel); color: var(--panel-fg); border-radius: 10px; padding: 18px 20px; display: grid; gap: 6px; }
+.hhead h4 { font-size: 15px; color: var(--panel-muted); font-weight: 700; }
+.big { display: flex; align-items: baseline; flex-wrap: wrap; gap: 4px 12px; }
+.big b { font-size: clamp(32px, 5vw, 44px); font-weight: 900; line-height: 1.15; font-variant-numeric: tabular-nums; }
+.big span { font-size: 14px; }
+.hhead .big span { color: var(--panel-muted); }
+.hstats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.hstat { background: var(--surface-2); border-radius: 10px; padding: 14px 18px; display: grid; }
+.hstat b { font-size: 26px; font-weight: 900; color: var(--accent); }
+.hstat span { font-size: 13px; color: var(--muted); }
+.himpact { background: var(--bg); border-radius: 10px; padding: 14px 18px; display: grid; gap: 4px; }
+.himpact h5 { font-size: 13px; color: var(--olive); }
+.more { justify-self: end; font-weight: 700; font-size: 14px; }
+
+/* AI tools */
+.aigrid { display: grid; grid-template-columns: minmax(0, 280px) minmax(0, 1fr); gap: 14px; align-items: start; }
+@media (max-width: 760px) { .aigrid { grid-template-columns: minmax(0, 1fr); } }
+.side.dark p { font-size: 15px; }
+.side .big b { font-size: 48px; }
+.muted { color: var(--panel-muted); }
+.side a { color: var(--panel-fg); }
+.tablewrap { overflow-x: auto; border-radius: 10px; background: var(--bg); }
+table { border-collapse: collapse; width: 100%; min-width: 560px; font-size: 14px; }
+thead th { background: var(--olive); color: var(--bg); text-align: left; font-weight: 700; padding: 8px 12px; }
+tbody th { text-align: left; vertical-align: top; color: var(--fg); font-weight: 700; padding: 10px 12px; background: var(--surface-2); white-space: nowrap; }
+td { padding: 9px 12px; border-top: 1px solid var(--line); vertical-align: top; }
+.st { font-size: 12px; font-weight: 700; border-radius: 999px; padding: 1px 8px; white-space: nowrap; }
+.st.ok { color: var(--olive); border: 1px solid var(--olive); }
+.st.wait { color: var(--accent); border: 1px solid var(--accent); }
+
+/* E-3 results */
+.message { background: var(--panel); color: var(--panel-muted); border-radius: 10px; padding: 12px 18px; }
+.message strong { color: var(--panel-fg); }
+.results { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
+@media (max-width: 760px) { .results { grid-template-columns: minmax(0, 1fr); } }
+.res { background: var(--bg); border-radius: 10px; padding: 16px 18px; display: grid; gap: 8px; align-content: start; }
+.res h4 { color: var(--accent); font-size: 18px; }
+.res .big b { color: var(--fg); font-size: 38px; }
+.res .big span { color: var(--muted); }
+.res h5 { font-size: 14px; color: var(--olive); margin-top: 4px; }
+.data { font-size: 13px; color: var(--muted); }
+.scale .bar.big { height: 12px; border-radius: 3px; background: var(--track); }
+.scale .bar.big > span { background: var(--accent); }
+.ends { display: flex; justify-content: space-between; font-size: 11px; color: var(--muted); }
+.cmp { display: grid; gap: 2px; font-size: 12px; color: var(--muted); }
+.cb { display: flex; align-items: center; gap: 8px; margin-bottom: 4px; }
+.cb span { display: block; height: 12px; background: var(--surface-2); border-radius: 2px; max-width: calc(100% - 48px); }
+.cb span.hot { background: var(--accent); }
+.cb b { color: var(--fg); font-size: 13px; }
+.source { font-size: 12px; color: var(--muted); }
+
+/* 2027 */
+.y27 { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr) minmax(0, 1fr); gap: 12px; }
+@media (max-width: 760px) { .y27 { grid-template-columns: minmax(0, 1fr); } }
+.ycol { background: var(--bg); border-radius: 10px; padding: 18px; display: grid; gap: 8px; align-content: start; }
+.ycol.first { background: var(--panel); color: var(--panel-fg); }
+.ycol.first li::marker { color: var(--panel-muted); }
+.ynum { font-size: 28px; font-weight: 900; color: var(--accent); line-height: 1; }
+.ycol.first .ynum { color: var(--panel-muted); }
+.ycol h4 { font-size: 18px; }
+
+.foot { margin-top: 40px; font-size: 12px; color: var(--muted); text-align: center; }
+@media (prefers-reduced-motion: reduce) { .caret { transition: none; } html { scroll-behavior: auto; } }
+html { scroll-behavior: smooth; }
+</style>
+<style>[hidden]{display:none!important} body{margin:0} img{max-width:100%}</style>
+</head>
+<body>
+<div class="wrap">
+<header class="cover">
+<p class="eyebrow">2026 下半年工作報告｜野灣環境教育課 陳香伶</p>
+<h1>2026 年工作報告</h1>
+<p class="meta">2026.05.01-2026.10.31<br>野灣環境教育課_陳香伶</p>
+<nav class="toc" aria-label="目錄"><h2>目錄</h2><ol>
+<li><a href="#duty" class="jump">職務簡介與職務項目</a></li>
+<li><a href="#highlights" class="jump">個人工作亮點</a></li>
+<li><a href="#progress" class="jump">目前工作進度</a><ol><li><a href="#main" class="jump">主要負責／共同負責項目</a></li><li><a href="#sup" class="jump">支援項目</a></li></ol></li>
+<li><a href="#y2027" class="jump">2027上半年工作重點</a></li></ol></nav>
+<div class="tools"><button type="button" id="toggleAll" aria-pressed="false">全部展開</button></div>
+</header>
+
+<section id="duty-sec" class="chapter">
+<details class="blk chap" id="duty"><summary><span class="btitle">職務簡介與職務項目</span><span class="caret" aria-hidden="true"></span></summary><div class="bbody"><div class="duty">
+<div class="role"><h4>職務簡介</h4><p>野灣環境教育課--環境教育人員</p><h4>職務項目</h4><p>2026 年環境教育課業務，包含以下：</p></div>
+<div class="dlist"><h4>1. 2026主要負責/共同負責項目</h4>
+<h5>A. 計畫執行</h5><ul><li>A-1 台東分署黑熊計畫－夥伴教師計畫</li></ul>
+<h5>B. 在地合作</h5><ul><li>B-1 池上國中社團課 (已交接)</li><li>B-2 鳥類觀察培訓-野調課合作</li></ul>
+<h5>C. 人力管理</h5><ul><li>C-1 志工管理</li><li>C-2 暑期大專工讀生</li></ul>
+<h5>D. 場域管理</h5><ul><li>D-1 教育迴廊 (已交接)</li></ul>
+<h5>E. 環教商品產出</h5><ul><li>E-1 季刊</li><li>E-2 救傷小卡</li><li>E-3 救傷線上互動</li><li>E-7 無印良品特展-勸募課合作</li></ul></div>
+<div class="dlist"><h4>2. 支援項目</h4>
+<h5>A. 計畫執行</h5><ul><li>A-1 台東分署黑熊計畫</li></ul>
+<h5>D. 場域管理</h5><ul><li>D-2 保育探索館</li></ul>
+<h5>E. 環教商品產出</h5><ul><li>E-5 職業體驗營隊</li></ul></div>
+</div></div></details>
+</section>
+
+<section id="highlights" class="chapter">
+<h2>個人工作亮點</h2>
+<details class="blk " id="hl1"><summary><span class="btitle">亮點 1｜驗證年度志工新機制成效</span><span class="caret" aria-hidden="true"></span></summary><div class="bbody"><article class="hl">
+<div class="hhead"><h4>年度志工計畫</h4><p>以用人需求為起點的志工機制，讓用人單位與志工雙方都體驗滿意。</p><p class="big"><b>9.8/10</b><span>照養志工滿意度</span></p></div>
+<div class="hstats"><div class="hstat"><b>13 位</b><span>志工正式服勤</span></div><div class="hstat"><b>5／5 位</b><span>照養志工全數結業成為校友</span></div></div>
+<div class="himpact"><h5>影響與後續</h5><p>志工反饋體驗良好，照養課也肯定今年志工服勤品質。2027 年將延續此模式，並擴大為兩梯次招募。</p><a href="#c1" class="jump more">詳見 C-1 志工管理 →</a></div>
+</article></div></details>
+<details class="blk " id="hl2"><summary><span class="btitle">亮點 2｜嘗試新型態救傷宣導</span><span class="caret" aria-hidden="true"></span></summary><div class="bbody"><article class="hl">
+<div class="hhead"><h4>新型態救傷宣導：「鳥事求救中！」</h4><p>以手機互動遊戲取代單向宣導，從企劃、遊戲設計、知識查證到開發上線獨立完成，無額外費用</p><p class="big"><b>1,811 位</b><span>遊戲玩家（統計至 10/31）</span></p></div>
+<div class="hstats"><div class="hstat"><b>第 1 名</b><span>7 月以來教育貼文連結點擊數</span></div><div class="hstat"><b>28.3 ％</b><span>玩家分享率</span></div></div>
+<div class="himpact"><h5>影響與後續</h5><p>已納入教師教學資源包供課堂使用，未來持續產製多元型態的溝通宣導素材。</p><a href="#e3" class="jump more">詳見 E-3 鳥事求救中 →</a></div>
+</article></div></details>
+<details class="blk " id="hl3"><summary><span class="btitle">亮點 3｜以 AI 補足工程人力：自行開發 9 項介面與工具</span><span class="caret" aria-hidden="true"></span></summary><div class="bbody"><div class="aigrid"><aside class="side dark">
+<p class="big"><b>9 項</b></p><p class="muted">自行開發的介面與工具</p>
+<p>環教課沒有工程人力，本期運用 AI 協作，自行開發對外介面與內部自動化工具，皆以免費平台建置，並建立工具清單，記錄後台位置與維護方式，以利日後交接。</p>
+<p>此外，主動建立「<a href="https://chat.google.com/room/AAQAFPJC05U?cls=7" target="_blank" rel="noopener">AI 資源分享交流</a>」討論區，邀請同仁分享 AI 工具及學習資源，帶動組織內嘗試以 AI 輔助工作的風氣。</p></aside>
+<div class="tablewrap"><table><thead><tr><th>類別</th><th>頁面／工具</th><th>解決的問題</th><th>狀態</th></tr></thead><tbody><tr><th scope="rowgroup" rowspan="4">環教對外介面</th><td><a href="https://wildone-edu.github.io/bird-sos/" target="_blank" rel="noopener">救傷互動遊戲-鳥事求救中！</a></td><td>以互動遊戲推廣救傷知識，並記錄成效數據</td><td><span class="st ok">已上線</span></td></tr><tr><td><a href="https://wildone-edu.github.io/teacher-kit/" target="_blank" rel="noopener">教師教學資源包</a></td><td>教師申請、驗證登入、下載救傷教學資源</td><td><span class="st ok">已上線</span></td></tr><tr><td><a href="https://sunnychenn.github.io/wildoneedu-events/" target="_blank" rel="noopener">官網教育活動搜尋器</a></td><td>學校與團體可依條件篩選野灣課程方案</td><td><span class="st ok">使用中</span></td></tr><tr><td><a href="https://wildone-education.netlify.app/" target="_blank" rel="noopener">保育探索館網頁</a></td><td>探索館對外資訊頁，附網頁維護說明</td><td><span class="st ok">使用中</span></td></tr><tr><th scope="rowgroup" rowspan="3">志工與校友</th><td><a href="https://script.google.com/a/macros/wildonetaiwan.org/s/AKfycbzMmnRCe7XD7Cw_k7al_dMDIPQraJUOBmK18e27LKXLxLx-BvpI9_WKyX3vceUoZipTOw/exec" target="_blank" rel="noopener">校友擺攤報名介面</a></td><td>校友自行查看攤位缺額並報名，取代 LINE 群組人工統計</td><td><span class="st ok">使用中</span></td></tr><tr><td><a href="https://reurl.cc/eQzREj" target="_blank" rel="noopener">校友服勤時數查詢</a></td><td>校友可自行查詢累積服勤時數及徽章進度</td><td><span class="st ok">使用中</span></td></tr><tr><td><a href="https://script.google.com/macros/s/AKfycbw_T95DzhyeTSIbvyezWwwG3D3ABN352SR8imznXV0DCycW5leyu2OM2Y2I-lkxc3_rdQ/exec" target="_blank" rel="noopener">大量救傷臨時志工表單</a></td><td>大量救傷時快速招募臨時人力</td><td><span class="st wait">尚未公開啟用</span></td></tr><tr><th scope="rowgroup" rowspan="2">內部自動化工具</th><td><a href="https://calendar.google.com/calendar/embed?src=c_f6e21e377d60d286641a55379c99c3dc91dbcf3811a96154759511f5843030d9%40group.calendar.google.com&amp;ctz=Asia%2FTaipei" target="_blank" rel="noopener">導覽可預約時段自動更新</a></td><td>每日自動移除兩週內的「可預約」時段</td><td><span class="st ok">使用中</span></td></tr><tr><td>專長人才庫信件彙整</td><td>自動彙整官網「成為保育的力量」表單通知信</td><td><span class="st ok">使用中</span></td></tr></tbody></table></div></div></div></details>
+</section>
+
+<section id="progress" class="chapter">
+<h2>目前工作進度</h2>
+<p class="chsub">2026 年環境教育課業務<span class="note"><span class="star">★</span> 者為年度亮點專案</span></p>
+<h3 id="main" class="group">主要負責／共同負責項目</h3>
+<div class="plist"><details class="proj " id="a1">
+<summary><span class="ptitle">A-1. 台東分署黑熊計畫－夥伴教師計畫<span class="star" title="年度亮點專案">★</span></span><span class="chips"><span class="chip">100%</span><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">野灣過往的校園宣導以單點入校為主，影響力較難在地方深化、擴散。因此今年嘗試開啟以「<strong>教師為主、野灣為輔</strong>」的夥伴關係，提供救傷教學資源並陪伴教師在自己的教學現場發展救傷課程，讓救傷教育由「野灣單點講座」延伸為「教師自行長期推動」。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">計畫規劃</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>計畫架構已完成</li></ul>
+</div>
+<div class="prow"><div class="plab">教學資源包平台建置</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>網站建置及測試完成</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>計畫規劃</h4><ul>
+<li>盤點環教課目前執行現況，提出擴大教育推廣影響力行動。</li>
+<li>與欣穎共同發想計畫架構，將教師參與歷程分為「加入 → 分享 → 共創」三階段，訂定各階段教師可獲得的資源、野灣的經營方式及成效指標。</li>
+</ul></div><div class="card"><h4>教學資源包平台建置</h4><ul>
+<li><strong>開發「<a href="https://wildone-edu.github.io/teacher-kit/" target="_blank" rel="noopener">野生動物救傷教學資源包</a>」網站：</strong>收錄野灣教案、影片學習單、桌遊與書單篩選、開源救傷資源（救傷小卡、紙箱開源檔、臺灣野生動物救傷地圖、鳥事求救中遊戲等等）。</li>
+<li><strong>建立申請與登入流程</strong>：教師申請後，由系統自動寄送通知信與驗證碼，教師登入後即可使用。後台留存登入紀錄，可追蹤教師實際使用情形。</li>
+<li>全程使用AI協助建置，<strong>無額外系統費用</strong>；撰寫維護文件，以利日後維護交接。</li>
+</ul></div></div></div></div></details><details class="proj " id="b1">
+<summary><span class="ptitle">B-1. 池上國中社團課</span><span class="chips"><span class="chip">100%</span><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">自 113 下半年起與該校合作至今。完成 114 下學期 (115 上半年) 社課，並交接業務。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">社課規劃及執行</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>已完成 7/7 堂社課</li></ul>
+</div>
+<div class="prow"><div class="plab">業務交接</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>下學期社課由仲評規劃執行</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>社課規劃及執行</h4><ul>
+<li>擔任社團指導教師，規劃並執行 114 下學期社課，以職業角色體驗為主軸，並嘗試鳥類新教案。</li>
+<li>與院內同仁協作，上半年設計並完成課程執行包含：鳥類辨識與賞鳥、窗殺認識、野外調查體驗等主題課程。</li>
+</ul></div><div class="card"><h4>業務交接</h4><ul>
+<li>說明合作脈絡、課程設計經驗與學校聯繫窗口，將社團業務交接給仲評。</li>
+</ul></div></div></div></div></details><details class="proj " id="b2">
+<summary><span class="ptitle">B-2. 鳥類觀察培訓-野調課合作</span><span class="chips"><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">野灣繫放追蹤的猛禽多分布於花東地區，需要在地民眾與賞鳥人士協助目擊回報。此課程為環教與野外調查課合作辦理。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">鳥類觀察與救傷培訓工作坊(花蓮鳥會)</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>已於 7/29 完成活動</li><li>共 19人參與，課程滿意度100%</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>鳥類觀察與救傷培訓工作坊(花蓮鳥會)</h4><ul>
+<li>與野外調查課合作，將上半年首場活動整理為<strong>可複製操作的課程模組</strong>。未來可依動物野放狀況與民眾回報需求，快速在其他地區開課。</li>
+<li>7/29 活動執行：負責「鳥類救傷」課程簡報與執行。延續首場的救傷情境判斷練習及鳥類救傷紙箱手作環節，第二場次為追加場，於近期有繫放個體目擊紀錄的花蓮地區，複製辦理此課程。</li>
+</ul></div></div></div></div></details><details class="proj " id="c1">
+<summary><span class="ptitle">C-1 志工管理<span class="star" title="年度亮點專案">★</span></span><span class="chips"><span class="chip">80%</span><span class="chip">70%</span><span class="chip">80%</span><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><h3 class="subhead">C-1 志工管理｜年度志工管理</h3><div class="pgrid"><aside class="side"><div class="intro"><strong>機制設計：</strong>完整執行去年設計的「招募 → 培訓 → 服勤 → 校友」完整歷程，並驗證新的機制成效良好 (讓志工能真正分擔現場工作，也獲得深度志工體驗)。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">野灣年度志工管理</div><div class="pval">80%</div><span class="bar"><span style="width:80%"></span></span>
+<ul><li>照養5位志工已結業，成為野灣校友</li><li>野調志工服勤中，12/5 結業</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>野灣年度志工管理</h4><p>2026 年度共 <strong>13 位志工</strong>正式服勤，其中照養志工 5 人已完成服勤並結業，野外調查志工 8 人持續服勤中。</p>
+<ul>
+<li><strong>確保服勤品質：</strong>密切關注與用人單位志工人力使用狀況，確保志工服勤品質。</li>
+<li><strong>社群活動規劃與執行</strong>：規劃並執行 6/28 照養志工結業式、8/20 野調志工期中線上小聚，幫助志工回顧志工體驗、凝聚情感，並維繫志工參與動力。</li>
+<li><strong>回饋與成效：</strong>
+<ul class="sub">
+<li>照養志工：整體對於志工體驗給予相當高的評價 (<a href="https://docs.google.com/spreadsheets/d/1u04AWZnVKEFs4TbhJcEAnDav-EDn8clml0OETWj_Afw/edit?resourcekey=&amp;gid=2119809102#gid=2119809102" target="_blank" rel="noopener">回饋問卷</a>)</li>
+<li>照養課端：內部同仁對今年志工的服勤品質給予正面回饋，顯示今年的招募機制能夠有效協助院內人力。<strong>2027 年將延續此計劃模式，並擴大為兩梯次招募。</strong></li>
+</ul></li>
+</ul></div></div></div><h3 class="subhead">C-1 志工管理｜2027 招募規劃與校友經營</h3><div class="pgrid"><aside class="side"><div class="intro">建立環境教育永續經營模式。除支援野灣內部營運、補充院內人力外，同時促進臺灣保育工作者專業賦能。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">2027志工招募規劃</div><div class="pval">70%</div><span class="bar"><span style="width:70%"></span></span>
+<ul><li>招募時程已確認</li><li>12/7公告</li></ul>
+</div>
+<div class="prow"><div class="plab">校友經營</div><div class="pval">80%</div><span class="bar"><span style="width:80%"></span></span>
+<ul><li>擺攤報名、時數徽章統計介面已上線</li><li>12/5校友年會籌備中</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>2027志工招募規劃</h4><ul>
+<li><strong>招募規劃</strong>：與照養課共同討論，並決議明年度照養志工調整為兩梯次 (5-6月、7-8月) 服勤，採統一招募。</li>
+<li><strong>排定招募時程</strong>：預於今年 12/7 公告志工招募簡章、年底前完成說明會辦理。</li>
+</ul></div><div class="card"><h4>校友經營</h4><ul>
+<li><strong>優化校友擺攤支援流程</strong>：建置「<a href="https://script.google.com/a/macros/wildonetaiwan.org/s/AKfycbzMmnRCe7XD7Cw_k7al_dMDIPQraJUOBmK18e27LKXLxLx-BvpI9_WKyX3vceUoZipTOw/exec" target="_blank" rel="noopener">校友擺攤報名介面</a>」，校友可直接查看近期攤位活動及需求人數並直接報名，減少以往於 LINE 群組來回溝通困難。</li>
+<li><strong>校友榮譽感維持</strong>：建置<a href="https://reurl.cc/eQzREj" target="_blank" rel="noopener">校友時數徽章統計頁面</a>，隨時查看時數徽章累計進度。</li>
+<li><strong>籌辦 12/5「野灣志工校友年會」：</strong>以實體活動凝聚校友及野灣連結。將邀請野灣內部照養、野調、勸募同仁分享年度近況，安排分享環節。</li>
+</ul></div></div></div><h3 class="subhead">C-1 志工管理｜野灣回饋講座</h3><div class="pgrid"><aside class="side"><div class="intro">建立環境教育永續經營模式。除支援野灣內部營運、補充院內人力外，同時促進臺灣保育工作者專業賦能。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">野灣回饋講座</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>已完成業務交接</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>野灣回饋講座</h4><ul>
+<li>本期期間辦理2場回饋講座。</li>
+<li><strong>延伸專業交流</strong>：6 月石虎講座後，察覺同仁仍有交流需求，主動邀請講者林育秀副研究員並彙整各課提問，於 9/10 辦理<a href="https://docs.google.com/document/d/1d2JmzePZiSCF8eTD8tJ5pGJbC5RxqNnWN9X34DIYUx0/edit?tab=t.0" target="_blank" rel="noopener">線上交流</a>，獸醫、病理、照養、野調課共 5 位夥伴參與，討論熱絡。</li>
+<li>業務交接：彙整回饋講座辦理流程細節，交接給仲評。</li>
+</ul></div></div></div></div></details><details class="proj " id="c2">
+<summary><span class="ptitle">C-2 暑期大專工讀生</span><span class="chips"><span class="chip">100%</span><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">申請「115 年臺東縣青年暑期職場體驗實施計畫」招募暑期工讀生，培力在地青年認識野生動物救傷工作，擴大救傷教育在地方的影響力。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">招募及甄選</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+</div>
+<div class="prow"><div class="plab">培訓規劃及執行</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>招募及甄選</h4><ul>
+<li>完成職缺宣傳、書審及面試，確認錄取在地青年賴昱蓁。</li>
+</ul></div><div class="card"><h4>人力管理</h4><ul>
+<li>工作安排及培訓內容規劃：安排跨部門見習、教育迴廊導覽觀摩及試講、繪本導讀活動設計，並於執行過程中持續給予回饋。</li>
+</ul></div><div class="card"><h4><a href="https://docs.google.com/document/d/1RdO10seyTySGWESC7FMjsM_8MaiVFk2t/edit" target="_blank" rel="noopener">執行成果</a></h4><ul>
+<li>昱蓁非相關科系背景，但學習狀況積極主動，能獨立執行各項任務：
+<ul class="sub">
+<li>導覽 16 場次，影響逾 70 人次</li>
+<li>保育探索館繪本導讀 7 場</li>
+<li>額外完成「食繭教具」設計製作</li>
+</ul></li>
+</ul></div><div class="card"><h4>在地人才延續</h4><ul>
+<li>工讀期間結束後，由於昱蓁工作表現良好，將以計時人員形式持續合作， 成為野灣在地教育人力 之一，能不定期支援教育迴廊導覽。</li>
+</ul></div></div></div></div></details><details class="proj " id="d1">
+<summary><span class="ptitle">D-1 教育迴廊導覽</span><span class="chips"><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">D-1 教育迴廊導覽｜業務交接</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>已完成交接</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>D-1 教育迴廊導覽｜業務交接</h4><ul>
+<li>將教育迴廊導覽申請管理、導覽員排班管理業務交接給仲評。</li>
+</ul></div></div></div></div></details><details class="proj " id="e1">
+<summary><span class="ptitle">E-1 季刊</span><span class="chips"><span class="chip">75%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">設計面向市場需求的環教商品，建立野灣環境教育品牌。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">E-1 季刊</div><div class="pval">75%</div><span class="bar"><span style="width:75%"></span></span>
+<ul><li>Q1–Q3 已完成</li><li>Q4 預計 12 月完成</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>E-1 季刊</h4><ul>
+<li>本年度與吳珈瑩獸醫師合作專欄《診間外的隱形威脅》，共四篇，本期完成 Q2、Q3 季刊，專欄已完成至第三篇。</li>
+</ul></div></div></div></div></details><details class="proj " id="e2">
+<summary><span class="ptitle">E-2 救傷小卡</span><span class="chips"><span class="chip">70%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">設計面向市場需求的環教商品，建立野灣環境教育品牌。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">E-2 救傷小卡</div><div class="pval">70%</div><span class="bar"><span style="width:70%"></span></span>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>E-2 救傷小卡</h4><ul>
+<li>延續去年的三款救傷小卡，今年製作<strong>蝙蝠、蛇類</strong>兩款。</li>
+<li>初稿已完成，目前微調中。</li>
+</ul></div></div></div></div></details><details class="proj " id="e3">
+<summary><span class="ptitle">E-3 救傷線上互動－鳥事求救中<span class="star" title="年度亮點專案">★</span></span><span class="chips"><span class="chip">100%</span><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><h3 class="subhead">E-3 救傷線上互動｜「<a href="https://wildone-edu.github.io/bird-sos/" target="_blank" rel="noopener">鳥事求救中！</a>」</h3><div class="pgrid"><aside class="side"><div class="intro"><strong>新型態教育宣導嘗試</strong>：以手機互動遊戲取代單向宣導，以分享機制讓內容自發擴散、觸及更多人。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">內容企劃</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+</div>
+<div class="prow"><div class="plab">上線成效</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>遊戲玩家 1,811 位（統計至 10/31）</li><li>完成率 76.5%、分享率 28.3%</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>內容企劃</h4><ul>
+<li><strong>目標</strong>：嘗試以新的溝通素材 (遊戲形式) 促進大眾正確參與救傷通報，傳遞正確救傷觀念的同時，避免說教感並提高分享意願。</li>
+<li><strong>獨立開發：</strong>從企劃、遊戲設計、知識查證到開發上線皆獨立完成；運用 AI 工具協作完成網頁遊戲開發，建置上線及數據紀錄機制，<strong>無額外費用支出</strong>。</li>
+</ul></div><div class="card"><h4>上線成效與後續規劃</h4><ul>
+<li>統計至 10/31 共 1,811 位玩家；貼文點擊率高於過往教育貼文，驗證互動式素材的溝通成效（詳見下頁）。</li>
+<li>已納入夥伴教師教學資源包，供教師課堂使用。</li>
+<li>未來持續產製多元型態的溝通宣導素材。</li>
+</ul></div></div></div><h3 class="subhead">E-3 救傷線上互動｜成效：互動式素材的溝通成果</h3><p class="message"><strong>民眾不只點進來，還會玩完、再自己傳出去：</strong>互動式素材在救傷宣導上的溝通成果</p><div class="results"><div class="res"><h4>① 吸引點擊</h4><p class="big"><b>7.1%</b><span>貼文點擊率</span></p><div class="cmp"><div class="cl">鳥事求救中</div><div class="cb"><span class="hot" style="width:100%"></span><b>7.1%</b></div>
+<div class="cl">過往教育宣導貼文（中位數）</div><div class="cb"><span style="width:49.3%"></span><b>3.5%</b></div></div><p class="data">點擊率（總點擊 ÷ 觀看）為過往教育宣導貼文中位數的 2 倍；連結點擊數在 17 篇中排第 1。</p><h5>代表的意義</h5><p>點擊率明顯高於過往教育型貼文，驗證互動式素材的溝通成效。</p></div><div class="res"><h4>② 完成學習</h4><p class="big"><b>76.5%</b><span>遊戲完成率</span></p><div class="scale"><span class="bar big"><span style="width:76.5%"></span></span><span class="ends"><span>0%</span><span>100%</span></span></div><p class="data">1,811 位開始遊戲，其中 1,386 位玩到結果頁（完成人數 ÷ 開始人數）。</p><h5>代表的意義</h5><p>開始玩的人超過七成五會玩完；玩完即走過所有救傷判斷情境、看到正確處理方式，達成宣導目的。</p></div><div class="res"><h4>③ 自發擴散</h4><p class="big"><b>28.3%</b><span>玩家分享率</span></p><div class="scale"><span class="bar big"><span style="width:28.3%"></span></span><span class="ends"><span>0%</span><span>100%</span></span></div><p class="data">1,386 位完成者中，392 位主動分享（分享人數 ÷ 完成人數）；朋友分享再帶回 624 次遊戲開始。</p><h5>代表的意義</h5><p>近三成玩完的人主動分享，讓救傷觀念在朋友間自行擴散，觸及官方管道以外的人。</p></div></div><p class="source">資料來源：臉書數據為 2026/7/1–10/29 粉專匯出，與 16 篇教育宣導貼文比較；遊戲數據為 10/23 上線至 10/31，以手機數計算。<a href="https://docs.google.com/spreadsheets/d/16w8A97mgwDshgA6HiWJwrlNItw-NhQIJVKkabBAK3dI/edit?gid=604980997#gid=604980997" target="_blank" rel="noopener">成效儀表板</a></p></div></details><details class="proj " id="e7">
+<summary><span class="ptitle">E-7 無印良品特展</span><span class="chips"><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="intro">設計面向市場需求的環教商品，建立野灣環境教育品牌。</div><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">E-7 無印良品特展-勸募課合作｜展品製作</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>特展已完成展出</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>E-7 無印良品特展-勸募課｜展品製作</h4><ul>
+<li>產出野灣動物故事內容、整理展品清單。</li>
+<li>已完成展品交件。</li>
+</ul></div></div></div></div></details></div>
+<h3 class="group">支援項目</h3>
+<div class="plist"><details class="proj " id="sup">
+<summary><span class="ptitle">支援項目</span><span class="chips"><span class="chip">77%</span><span class="chip">100%</span><span class="chip">100%</span></span><span class="caret" aria-hidden="true"></span></summary>
+<div class="pbody"><div class="pgrid"><aside class="side"><div class="prog"><h4>執行進度</h4>
+<div class="prow"><div class="plab">A-1 台東分署黑熊計畫</div><div class="pval">77%</div><span class="bar"><span style="width:77%"></span></span>
+<ul><li>(計畫整體進度)</li></ul>
+</div>
+<div class="prow"><div class="plab">D-2 保育探索館｜千里步道協會特展</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>特展已於 5/2 開幕</li></ul>
+</div>
+<div class="prow"><div class="plab">E-5 職業體驗營隊</div><div class="pval">100%</div><span class="bar"><span style="width:100%"></span></span>
+<ul><li>營隊已於 10/9–10/11 辦理</li></ul>
+</div>
+</div></aside><div class="cards"><div class="card"><h4>A-1 台東分署黑熊計畫</h4><ul>
+<li>協助部落宣導、機關宣導、校園宣導等場次執行。</li>
+</ul></div><div class="card"><h4>D-2 保育探索館｜千里步道協會特展</h4><ul>
+<li>協助千里步道協會完成佈展</li>
+<li>協助櫃台人員熟悉特展內容。</li>
+</ul></div><div class="card"><h4>E-5 職業體驗營隊</h4><ul>
+<li><strong>生活組</strong>：負責食宿交通規劃（活動場地動線、遊覽車接駁、住宿及餐食聯繫）、保險及合約資料準備。</li>
+<li><strong>小隊輔</strong>：招募小隊輔，並於 9/20 辦理小隊輔共識會。</li>
+<li><strong>活動紀錄影片</strong>：規劃拍攝分工及雲端素材上傳流程，運用 AI 工具快速剪輯，於 10/11 閉幕時播放活動回顧影片。</li>
+</ul></div></div></div></div></details></div>
+</section>
+
+<section class="chapter">
+<details class="blk chap" id="y2027"><summary><span class="btitle">2027上半年工作重點</span><span class="caret" aria-hidden="true"></span></summary><div class="bbody"><div class="y27"><div class="ycol first"><span class="ynum">01</span><h4><span class=star>★</span>人力管理及培訓</h4><ul>
+<li><strong>年度志工：</strong>
+<ul class="sub">
+<li>籌辦 2026 野調志工結業式與校友年會</li>
+<li>執行志工招募：12/7 公告、1 月面試、2月 公告正備取</li>
+<li>籌辦 4/10–11 志工培訓：依 2026 回饋優化培訓課程結構</li>
+<li>服勤管理：5 月起兩梯次照養志工服勤</li>
+</ul></li>
+<li>校友：校友擺攤支援、校友社群經營</li>
+<li>暑期工讀生：持續申請臺東縣青年暑期職場體驗計畫，招募並培訓在地青年</li>
+</ul></div><div class="ycol"><span class="ynum">02</span><h4>環境教育商品產出</h4><ul>
+<li>持續嘗試其他型態的互動式宣導素材 (如：遊戲/動畫/影片等)，並與勸募課合作，擴大教育宣導影響力。</li>
+<li>製作救傷小卡* 2款</li>
+<li>籌辦企業合作營隊</li>
+<li>季刊企劃及執行</li>
+</ul></div><div class="ycol"><span class="ynum">03</span><h4>野灣教師社群推進</h4><ul>
+<li>教學資源包使用狀況追蹤</li>
+<li>教師社群規劃及運營</li>
+<li>蒐集第一年夥伴教師回饋並優化計畫</li>
+</ul></div></div></div></details>
+</section>
+<footer class="foot">2026 下半年工作報告｜野灣環境教育課 陳香伶</footer>
+</div>
+<script>(function () {
+  const all = () => Array.from(document.querySelectorAll('details'));
+  const btn = document.getElementById('toggleAll');
+  function sync() {
+    const open = all().every(d => d.open);
+    btn.textContent = open ? '全部收合' : '全部展開';
+    btn.setAttribute('aria-pressed', String(open));
+  }
+  btn.addEventListener('click', () => {
+    const open = !all().every(d => d.open);
+    all().forEach(d => { d.open = open; });
+    sync();
+  });
+  document.addEventListener('toggle', sync, true);
+
+  function reveal(id) {
+    const el = id && document.getElementById(id);
+    if (!el) return;
+    let d = el.closest('details');
+    while (d) { d.open = true; d = d.parentElement && d.parentElement.closest('details'); }
+    if (el.tagName === 'DETAILS') el.open = true;
+    el.scrollIntoView({ block: 'start' });
+  }
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a.jump');
+    if (!a) return;
+    const id = a.getAttribute('href').slice(1);
+    e.preventDefault();
+    reveal(id);
+    try { history.replaceState(null, '', '#' + id); } catch (_) {}
+  });
+  window.addEventListener('hashchange', () => reveal(location.hash.slice(1)));
+  if (location.hash) reveal(location.hash.slice(1));
+  sync();
+})();
+</script>
+</body>
+</html>
